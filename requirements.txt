@@ -1,0 +1,13 @@
+pandas
+requests
+sqlalchemy
+psycopg2-binary
+dbt-postgres
+prefect
+streamlit
+pytest
+ruff
+black
+python-dotenv
+pyarrow
+fastparquet

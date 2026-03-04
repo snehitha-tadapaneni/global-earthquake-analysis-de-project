@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: public
+    database: "{{ env_var('POSTGRES_DB', 'earthquakes') }}"
+    schema: public
+    tables:
+      - name: raw_earthquakes
+
+models:
+  - name: stg_earthquakes
+    description: "Staged, clean earthquake data"
+    columns:
+      - name: earthquake_id
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_earthquake
+    description: "Fact table for earthquake events"
+    columns:
+      - name: earthquake_id
+        tests:
+          - unique
+          - not_null
+      - name: location_id
+        tests:
+          - not_null
